@@ -11,6 +11,11 @@
 
 ---
 
+### 🌐 Live Website Link
+👉 **[https://shreyaskumbhar4-hub.github.io/satara-cafe-website/](https://shreyaskumbhar4-hub.github.io/satara-cafe-website/)**
+
+---
+
 ## 🌟 Why This Project is Unique
 
 Most cafe and restaurant websites look like generic corporate tech startups with blurry stock photos, robotic AI copywriting, and clunky PDF menus. 
@@ -54,8 +59,8 @@ Most cafe and restaurant websites look like generic corporate tech startups with
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/satara-cafe.git
-cd satara-cafe
+git clone https://github.com/shreyaskumbhar4-hub/satara-cafe-website.git
+cd satara-cafe-website
 ```
 
 ### 2. Install dependencies
@@ -77,12 +82,10 @@ The optimized, static build will be generated in the `dist/` directory.
 
 ---
 
-## 🌐 Free Production Deployment
+## 🌐 Production Deployments
 
-Deploy the `dist/` folder for free on:
-- **Vercel**: Run `vercel` in terminal or connect your GitHub repository.
-- **Netlify**: Drag-and-drop the `dist` folder onto Netlify Drop.
-- **Cloudflare Pages**: Connect repo, set build command to `npm run build` and output directory to `dist`.
+- **GitHub Pages (Live)**: [https://shreyaskumbhar4-hub.github.io/satara-cafe-website/](https://shreyaskumbhar4-hub.github.io/satara-cafe-website/)
+- **Vercel / Netlify**: Connect this repo to Vercel or Netlify for instant zero-configuration hosting.
 
 ---
 
