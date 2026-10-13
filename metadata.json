@@ -1,0 +1,6 @@
+{
+  "name": "Satara Cafe | सातारा कॅफे",
+  "description": "Authentic South Indian breakfast, Maharashtrian wada pav & thalipeeth, grilled sandwiches, and fast food in Sadar Bazar, Satara.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

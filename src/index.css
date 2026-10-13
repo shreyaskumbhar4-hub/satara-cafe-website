@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, Cambria, serif;
+  --font-marathi: "Rozha One", "Yatra One", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-terracotta: #9c3418;
+  --color-masala: #782610;
+  --color-warmpaper: #fcf8f2;
+  --color-agedparchment: #f4ecdf;
+  --color-coffeebark: #241a15;
+  --color-brass: #c88937;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warmpaper);
+  color: var(--color-coffeebark);
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-marathi-brand {
+  font-family: var(--font-marathi);
+}
+
+/* Subtle warm craft paper texture accent */
+.paper-edge {
+  box-shadow: 0 1px 3px rgba(36, 26, 21, 0.08), 0 8px 24px -4px rgba(36, 26, 21, 0.06);
+}
+
+.paper-pinned {
+  box-shadow: 2px 4px 14px rgba(36, 26, 21, 0.12);
+}
