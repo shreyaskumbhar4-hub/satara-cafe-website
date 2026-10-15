@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Fraunces", Georgia, Cambria, serif;
+  --font-serif: "Rozha One", "Fraunces", Georgia, Cambria, serif;
   --font-marathi: "Rozha One", "Yatra One", serif;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --color-terracotta: #9c3418;
-  --color-masala: #782610;
-  --color-warmpaper: #fcf8f2;
-  --color-agedparchment: #f4ecdf;
-  --color-coffeebark: #241a15;
-  --color-brass: #c88937;
+  
+  --color-sand: #FBF6EE;
+  --color-sand-muted: #F3E9D7;
+  --color-sand-card: #FFFDF9;
+  --color-sage: #758A6F;
+  --color-sage-dark: #586B52;
+  --color-sage-light: #E1EADA;
+  --color-sage-card: #DCE6D8;
+  --color-terracotta: #D37432;
+  --color-terracotta-dark: #B2581A;
+  --color-terracotta-badge: #FDE8D7;
+  --color-espresso: #241810;
+  --color-espresso-light: #4A392C;
 }
 
 html {
@@ -18,8 +25,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-warmpaper);
-  color: var(--color-coffeebark);
+  background-color: #FBF6EE;
+  color: #241810;
 }
 
 .font-editorial {
@@ -30,11 +37,22 @@ body {
   font-family: var(--font-marathi);
 }
 
-/* Subtle warm craft paper texture accent */
-.paper-edge {
-  box-shadow: 0 1px 3px rgba(36, 26, 21, 0.08), 0 8px 24px -4px rgba(36, 26, 21, 0.06);
+/* Organic Arch and Capsule Geometry */
+.hero-arch {
+  border-top-right-radius: 180px;
+  border-bottom-left-radius: 120px;
 }
 
-.paper-pinned {
-  box-shadow: 2px 4px 14px rgba(36, 26, 21, 0.12);
+.dish-capsule {
+  border-radius: 100px;
+}
+
+.card-organic {
+  border-radius: 28px;
+}
+
+/* Subtle botanical flourish background */
+.bg-botanical-dots {
+  background-image: radial-gradient(#CBB9A2 1px, transparent 1px);
+  background-size: 24px 24px;
 }

@@ -75,29 +75,34 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
   };
 
   return (
-    <div className="py-12 md:py-20 bg-[#fcf8f2] text-[#241a15] animate-fade-in">
+    <div className="py-12 md:py-20 bg-[#FBF6EE] text-[#241810] animate-fade-in">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="text-[11px] uppercase tracking-widest font-bold text-[#9c3418] mb-1">
+        {/* Header with botanical flourish */}
+        <div className="text-center mb-10">
+          <span className="text-xs uppercase tracking-widest font-bold text-[#758A6F] mb-1 block">
             {lang === 'en' ? 'Direct Counter Desk' : 'कट्टा पावती डेस्क'}
-          </div>
-          <h1 className="font-editorial text-3xl sm:text-4xl font-bold text-[#241a15]">
+          </span>
+          <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#241810] tracking-tight">
             {lang === 'en' ? 'Your Table Order Slip' : 'आपली कच्ची पावती'}
           </h1>
-          <p className="text-xs sm:text-sm text-[#735e52] mt-1">
-            Review items, choose Dine-In or Parcel, and send directly to 075586 81179 via WhatsApp.
+          <div className="flex justify-center my-2 text-[#758A6F]">
+            <span>❧ ✦ ☙</span>
+          </div>
+          <p className="text-xs sm:text-sm text-[#5F4B3C] max-w-lg mx-auto">
+            {lang === 'en'
+              ? 'Review your items, choose Dine-In or Parcel, and send directly to 075586 81179 via WhatsApp.'
+              : 'निवडलेले पदार्थ तपासा, पार्सल किंवा डायनिंग निवडा आणि थेट 075586 81179 वर व्हॉट्सअ‍ॅप करा.'}
           </p>
         </div>
 
         {/* Successful Dispatch Banner */}
         {orderSent && (
-          <div className="mb-8 p-6 rounded-xl bg-[#e8f2e8] border border-[#c2ddc2] text-[#235e23] text-center space-y-2">
-            <div className="text-xl font-bold font-editorial">
+          <div className="mb-8 p-6 rounded-[28px] bg-[#E1EADA] border border-[#C5D4C1] text-[#241810] text-center space-y-2 shadow-sm">
+            <div className="text-xl font-bold font-editorial text-[#586B52]">
               {lang === 'en' ? 'Order Slip Sent to Satara Cafe!' : 'ऑर्डर पावती व्हॉट्सअ‍ॅपवर पाठवली!'}
             </div>
-            <p className="text-xs text-[#2e6930] max-w-md mx-auto">
+            <p className="text-xs text-[#4A5D44] max-w-md mx-auto">
               {lang === 'en'
                 ? 'Your order was sent to the kitchen at Sadar Bazar. We will verify preparation time immediately.'
                 : 'आपली ऑर्डर कॅफे कर्मचाऱ्यांना प्राप्त झाली आहे. तयारीची वेळ कळवली जाईल.'}
@@ -105,9 +110,9 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
             <div className="pt-2 flex justify-center gap-3">
               <a
                 href={`tel:${CAFE_INFO.phone}`}
-                className="px-4 py-2 bg-[#2e6930] text-white text-xs font-bold rounded"
+                className="px-5 py-2.5 bg-[#586B52] hover:bg-[#4A5D44] text-white text-xs font-bold rounded-full transition-colors"
               >
-                Call: {CAFE_INFO.phone}
+                Call Counter: {CAFE_INFO.phone}
               </a>
               <button
                 type="button"
@@ -115,7 +120,7 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                   setOrderSent(false);
                   onClearCart();
                 }}
-                className="px-4 py-2 text-xs text-[#2e6930] underline"
+                className="px-4 py-2.5 text-xs text-[#586B52] font-semibold underline hover:text-[#241810]"
               >
                 Create New Order
               </button>
@@ -125,14 +130,14 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
 
         {/* Empty State */}
         {cartItems.length === 0 ? (
-          <div className="bg-[#fffdfa] border-2 border-[#e8dfd1] rounded-2xl p-10 text-center space-y-4 shadow-xs">
-            <div className="w-14 h-14 rounded-full bg-[#f4ecdf] text-[#9c3418] font-editorial text-2xl font-bold flex items-center justify-center mx-auto">
+          <div className="bg-[#FFFDF9] border border-[#DECEB7] rounded-[28px] p-10 text-center space-y-4 shadow-sm">
+            <div className="w-16 h-16 rounded-full bg-[#F3E9D7] text-[#D37432] font-editorial text-2xl font-bold flex items-center justify-center mx-auto border border-[#DECEB7]">
               0
             </div>
-            <h2 className="font-editorial text-2xl font-bold text-[#241a15]">
+            <h2 className="font-editorial text-2xl font-bold text-[#241810]">
               {lang === 'en' ? 'Your Order Slip is Empty' : 'पावतीवर कोणताही पदार्थ नाही'}
             </h2>
-            <p className="text-xs text-[#735e52] max-w-sm mx-auto leading-relaxed">
+            <p className="text-xs text-[#5F4B3C] max-w-sm mx-auto leading-relaxed">
               {lang === 'en'
                 ? 'Add your favorite banana leaf dosas, wada pav, grilled sandwiches, or cutting chai from the artisanal menu.'
                 : 'मेनूमधून डोसा, वडापाव, सँडविच किंवा कटींग चहा निवडून पावतीमध्ये जोडा.'}
@@ -140,42 +145,42 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
             <button
               onClick={() => onNavigate('menu')}
               type="button"
-              className="mt-2 px-6 py-3 bg-[#9c3418] hover:bg-[#802810] text-[#fcf8f2] text-xs uppercase tracking-wider font-bold rounded shadow-xs"
+              className="mt-2 px-7 py-3.5 bg-[#D37432] hover:bg-[#B2581A] text-white text-xs uppercase tracking-wider font-bold rounded-full shadow-md hover:shadow-lg transition-all"
             >
               {lang === 'en' ? 'Browse Menu & Combos' : 'मेनू कार्ड पहा'}
             </button>
           </div>
         ) : (
-          /* The Paper Order Slip */
-          <div className="bg-[#fffdfa] border border-[#e2d6c3] rounded-2xl shadow-lg overflow-hidden relative paper-pinned">
+          /* The Artisanal Paper Order Slip */
+          <div className="bg-[#FFFDF9] border border-[#DECEB7] rounded-[28px] shadow-lg overflow-hidden relative">
             
-            {/* Perforated Top Tear Strip */}
-            <div className="h-3 bg-[#f4ecdf] border-b-2 border-dashed border-[#dcd1be]" />
+            {/* Perforated Top Tear Strip with Sage Accents */}
+            <div className="h-3.5 bg-[#F3E9D7] border-b-2 border-dashed border-[#DECEB7]" />
 
             {/* Slip Header Lockup */}
-            <div className="p-6 sm:p-8 border-b border-[#f4ecdf] bg-[#fcf8f2] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-6 sm:p-8 border-b border-[#DECEB7] bg-[#FBF6EE] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="flex items-baseline gap-2">
-                  <span className="font-editorial text-2xl font-bold text-[#241a15]">Satara Cafe</span>
-                  <span className="font-marathi-brand text-base text-[#9c3418]">सातारा कॅफे</span>
+                <div className="flex items-baseline gap-2.5">
+                  <span className="font-editorial text-2xl font-bold text-[#241810]">Satara Cafe</span>
+                  <span className="font-marathi-brand text-base text-[#D37432] font-semibold">सातारा कॅफे</span>
                 </div>
-                <div className="text-xs text-[#735e52]">
+                <div className="text-xs text-[#5F4B3C] mt-0.5">
                   Sadar Bazar, Satara 415001 · Near Sainik Bank
                 </div>
-                <div className="text-[11px] font-mono text-[#8c786a] mt-0.5">
+                <div className="text-[11px] font-mono text-[#8D7663] mt-0.5">
                   Tel: {CAFE_INFO.phone} · Plus Code: {CAFE_INFO.plusCode}
                 </div>
               </div>
 
               {/* Service Type Segmented Toggle */}
-              <div className="flex items-center gap-1 bg-[#f4ecdf] p-1 rounded-lg border border-[#e2d6c3]">
+              <div className="flex items-center gap-1.5 bg-[#F3E9D7] p-1.5 rounded-full border border-[#DECEB7]">
                 <button
                   type="button"
                   onClick={() => setServiceType('takeaway')}
-                  className={`px-3 py-1.5 text-xs font-bold rounded transition-colors ${
+                  className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
                     serviceType === 'takeaway'
-                      ? 'bg-[#9c3418] text-white shadow-xs'
-                      : 'text-[#524137] hover:text-[#241a15]'
+                      ? 'bg-[#D37432] text-white shadow-xs'
+                      : 'text-[#5F4B3C] hover:text-[#241810]'
                   }`}
                 >
                   Takeaway Parcel
@@ -183,10 +188,10 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                 <button
                   type="button"
                   onClick={() => setServiceType('dine-in')}
-                  className={`px-3 py-1.5 text-xs font-bold rounded transition-colors ${
+                  className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all ${
                     serviceType === 'dine-in'
-                      ? 'bg-[#9c3418] text-white shadow-xs'
-                      : 'text-[#524137] hover:text-[#241a15]'
+                      ? 'bg-[#D37432] text-white shadow-xs'
+                      : 'text-[#5F4B3C] hover:text-[#241810]'
                   }`}
                 >
                   Dine-In Table
@@ -195,9 +200,9 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
             </div>
 
             {/* Customer Contact Details */}
-            <div className="p-6 sm:p-8 border-b border-[#f4ecdf] bg-[#fffdfa] grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div className="p-6 sm:p-8 border-b border-[#DECEB7] bg-[#FFFDF9] grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#735e52] mb-1">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#758A6F] mb-1">
                   Customer Name
                 </label>
                 <input
@@ -205,12 +210,12 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                   placeholder="e.g. Anand Shinde"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#fcf8f2] border border-[#dcd1be] rounded text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-3.5 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-[#241810] focus:outline-none focus:border-[#D37432]"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#735e52] mb-1">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#758A6F] mb-1">
                   WhatsApp / Phone
                 </label>
                 <input
@@ -218,12 +223,12 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                   placeholder="e.g. 98XXXXXXXX"
                   value={customerPhone}
                   onChange={(e) => setCustomerPhone(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#fcf8f2] border border-[#dcd1be] rounded text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-3.5 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-[#241810] focus:outline-none focus:border-[#D37432]"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#735e52] mb-1">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#758A6F] mb-1">
                   {serviceType === 'dine-in' ? 'Table Number' : 'Pickup Time'}
                 </label>
                 <input
@@ -231,52 +236,52 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                   placeholder={serviceType === 'dine-in' ? 'e.g. Table 4' : 'e.g. In 15 mins'}
                   value={tableNumber}
                   onChange={(e) => setTableNumber(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#fcf8f2] border border-[#dcd1be] rounded text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-3.5 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-[#241810] focus:outline-none focus:border-[#D37432]"
                 />
               </div>
             </div>
 
             {/* Itemized Order Lines */}
             <div className="p-6 sm:p-8 space-y-4">
-              <div className="text-[11px] font-bold uppercase tracking-wider text-[#735e52] flex justify-between border-b border-[#f4ecdf] pb-2">
+              <div className="text-[11px] font-bold uppercase tracking-wider text-[#758A6F] flex justify-between border-b border-[#DECEB7] pb-2">
                 <span>Item & Preparation</span>
                 <span className="text-right">Qty & Amount</span>
               </div>
 
-              <div className="divide-y divide-[#f4ecdf]">
+              <div className="divide-y divide-[#F3E9D7]">
                 {cartItems.map((ci) => {
                   const singlePrice = ci.menuItem.price + (ci.customization?.extraCheese ? 25 : 0) + (serviceType === 'takeaway' ? 5 : 0);
                   const lineTotal = singlePrice * ci.quantity;
 
                   return (
-                    <div key={ci.cartId} className="py-3 flex items-start justify-between gap-4 text-xs">
+                    <div key={ci.cartId} className="py-3.5 flex items-start justify-between gap-4 text-xs">
                       <div>
-                        <div className="font-bold text-sm text-[#241a15]">
+                        <div className="font-bold text-sm text-[#241810]">
                           {lang === 'en' ? ci.menuItem.nameEn : ci.menuItem.nameMr}
                         </div>
-                        <div className="text-[11px] text-[#735e52]">
+                        <div className="text-[11px] text-[#5F4B3C]">
                           ₹{ci.menuItem.price} base
                           {ci.customization?.extraCheese && <span> + ₹25 cheese</span>}
                           {serviceType === 'takeaway' && <span> + ₹5 pack</span>}
                         </div>
                         {ci.isCombo && (
-                          <div className="text-[10px] font-bold text-[#2e6930] mt-0.5">
+                          <div className="text-[10px] font-bold text-[#586B52] bg-[#E1EADA] px-2 py-0.5 rounded-full inline-block mt-1">
                             Katta Combo Deal Bundle
                           </div>
                         )}
                         {ci.customization?.spiceLevel && (
-                          <div className="text-[10px] text-[#8c786a]">
+                          <div className="text-[10px] text-[#8D7663] mt-0.5">
                             Spice: {ci.customization.spiceLevel}
                           </div>
                         )}
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-1.5 bg-[#f4ecdf] px-2 py-1 rounded border border-[#e2d6c3]">
+                        <div className="flex items-center gap-1.5 bg-[#F3E9D7] px-2.5 py-1 rounded-full border border-[#DECEB7]">
                           <button
                             type="button"
                             onClick={() => onUpdateQuantity(ci.cartId, -1)}
-                            className="font-bold px-1 text-[#524137] hover:text-[#241a15]"
+                            className="font-bold px-1.5 text-[#5F4B3C] hover:text-[#241810]"
                           >
                             -
                           </button>
@@ -286,20 +291,20 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                           <button
                             type="button"
                             onClick={() => onUpdateQuantity(ci.cartId, 1)}
-                            className="font-bold px-1 text-[#524137] hover:text-[#241a15]"
+                            className="font-bold px-1.5 text-[#5F4B3C] hover:text-[#241810]"
                           >
                             +
                           </button>
                         </div>
 
-                        <div className="font-mono font-bold text-right tabular-nums w-14 text-sm text-[#241a15]">
+                        <div className="font-mono font-bold text-right tabular-nums w-14 text-sm text-[#241810]">
                           ₹{lineTotal}
                         </div>
 
                         <button
                           type="button"
                           onClick={() => onRemoveItem(ci.cartId)}
-                          className="text-[#a39082] hover:text-[#9c3418] text-base p-1"
+                          className="text-[#8D7663] hover:text-[#D37432] text-base p-1"
                           title="Remove item"
                         >
                           ×
@@ -311,8 +316,8 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
               </div>
 
               {/* Special Cooking Note Input */}
-              <div className="pt-3 border-t border-[#f4ecdf]">
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#735e52] mb-1">
+              <div className="pt-3 border-t border-[#DECEB7]">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-[#758A6F] mb-1">
                   Kitchen Instruction
                 </label>
                 <input
@@ -320,27 +325,27 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                   placeholder="e.g. Roasted crisp on tawa, extra coconut chutney on the side..."
                   value={chefNote}
                   onChange={(e) => setChefNote(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#fcf8f2] border border-[#dcd1be] rounded text-xs text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-3.5 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-xs text-[#241810] focus:outline-none focus:border-[#D37432]"
                 />
               </div>
 
               {/* Bill Totals & Grand Amount */}
-              <div className="pt-4 border-t-2 border-dashed border-[#e2d6c3] space-y-1.5 text-xs">
-                <div className="flex justify-between text-[#735e52]">
+              <div className="pt-4 border-t-2 border-dashed border-[#DECEB7] space-y-1.5 text-xs">
+                <div className="flex justify-between text-[#5F4B3C]">
                   <span>Items Count</span>
                   <span className="font-mono">{cartItems.reduce((acc, i) => acc + i.quantity, 0)} items</span>
                 </div>
                 {packagingCharges > 0 && (
-                  <div className="flex justify-between text-[#735e52]">
+                  <div className="flex justify-between text-[#5F4B3C]">
                     <span>Takeaway Container Packing</span>
                     <span className="font-mono">₹{packagingCharges}</span>
                   </div>
                 )}
-                <div className="flex justify-between items-baseline pt-2 border-t border-[#f4ecdf]">
-                  <span className="font-editorial text-lg font-bold text-[#241a15]">
+                <div className="flex justify-between items-baseline pt-2 border-t border-[#DECEB7]">
+                  <span className="font-editorial text-xl font-bold text-[#241810]">
                     {lang === 'en' ? 'Grand Total to Pay' : 'एकूण रक्कम'}
                   </span>
-                  <span className="font-mono text-2xl font-bold text-[#9c3418] tabular-nums">
+                  <span className="font-mono text-2xl sm:text-3xl font-bold text-[#D37432] tabular-nums">
                     ₹{grandTotal}
                   </span>
                 </div>
@@ -348,19 +353,19 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
             </div>
 
             {/* Actions & Dispatch Bar */}
-            <div className="p-6 sm:p-8 bg-[#fcf8f2] border-t border-[#e8dfd1] flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div className="flex gap-2 w-full sm:w-auto">
+            <div className="p-6 sm:p-8 bg-[#FBF6EE] border-t border-[#DECEB7] flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex gap-2.5 w-full sm:w-auto">
                 <button
                   type="button"
                   onClick={handlePrintSlip}
-                  className="px-4 py-3 border border-[#dcd1be] hover:border-[#241a15] text-[#524137] hover:text-[#241a15] text-xs font-bold rounded transition-colors"
+                  className="px-5 py-3 border border-[#DECEB7] hover:border-[#241810] text-[#5F4B3C] hover:text-[#241810] text-xs font-bold rounded-full transition-colors bg-[#FFFDF9]"
                 >
                   Print Slip 🖨️
                 </button>
                 <button
                   type="button"
                   onClick={() => onNavigate('menu')}
-                  className="px-4 py-3 border border-[#dcd1be] text-[#524137] hover:text-[#241a15] text-xs font-bold rounded transition-colors"
+                  className="px-5 py-3 border border-[#DECEB7] text-[#5F4B3C] hover:text-[#241810] text-xs font-bold rounded-full transition-colors bg-[#FFFDF9]"
                 >
                   + Add More
                 </button>
@@ -370,7 +375,7 @@ export const OrderSlipPage: React.FC<OrderSlipPageProps> = ({
                 <button
                   type="button"
                   onClick={handleSendToWhatsApp}
-                  className="flex-1 sm:flex-none px-6 py-3.5 bg-[#2e6930] hover:bg-[#255627] text-white text-xs uppercase tracking-wider font-bold rounded shadow-md transition-all text-center"
+                  className="flex-1 sm:flex-none px-7 py-3.5 bg-[#586B52] hover:bg-[#4A5D44] text-white text-xs uppercase tracking-wider font-bold rounded-full shadow-md hover:shadow-lg transition-all text-center"
                 >
                   Send Order via WhatsApp (075586 81179)
                 </button>

@@ -69,27 +69,27 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
   };
 
   return (
-    <div className="py-12 md:py-20 bg-[#f4ecdf] text-[#241a15] animate-fade-in">
+    <div className="py-12 md:py-20 bg-[#FBF6EE] text-[#241810] animate-fade-in">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-4 border-b border-[#E7DBCA]">
           <div>
-            <div className="text-[11px] uppercase tracking-widest font-bold text-[#9c3418] mb-1">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#758A6F] mb-1 block">
               {lang === 'en' ? 'Verified Google Reviews' : 'गुगल मॅप्स वरील अभिप्राय'}
-            </div>
-            <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#241a15]">
+            </span>
+            <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#241810] tracking-tight">
               {lang === 'en' ? 'Notes Pinned on Our Board' : 'कट्ट्यावरील आठवणी व अभिप्राय'}
             </h1>
-            <p className="text-xs sm:text-sm text-[#735e52] mt-2">
-              Google Maps Rating: <strong>{CAFE_INFO.rating} ★ (212 reviews)</strong> · Average budget: ₹1–200 per head
+            <p className="text-xs sm:text-sm text-[#5F4B3C] mt-2">
+              Google Maps Rating: <strong className="text-[#241810]">{CAFE_INFO.rating} ★ ({CAFE_INFO.reviewCount} reviews)</strong> · Average budget: ₹1–200 per head
             </p>
           </div>
 
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="px-5 py-3 bg-[#241a15] hover:bg-[#9c3418] text-[#fcf8f2] text-xs uppercase tracking-wider font-bold rounded transition-colors self-start md:self-auto shadow-sm"
+            className="px-6 py-3.5 bg-[#D37432] hover:bg-[#B2581A] text-white text-xs uppercase tracking-wider font-bold rounded-full transition-all self-start md:self-auto shadow-md hover:shadow-lg"
           >
             {lang === 'en' ? '+ Pin Your Review' : '+ आपला अभिप्राय नोंदवा'}
           </button>
@@ -97,31 +97,31 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
 
         {/* Confirmation Toast */}
         {toastMessage && (
-          <div className="mb-6 p-4 rounded bg-[#e8f2e8] border border-[#c2ddc2] text-[#2e6930] text-xs font-bold">
+          <div className="mb-6 p-4 rounded-2xl bg-[#E1EADA] border border-[#C5D4C1] text-[#586B52] text-xs font-bold text-center">
             {lang === 'en' ? 'Thank you! Your note has been pinned to the board.' : 'धन्यवाद! आपला अभिप्राय कट्ट्यावर जोडला गेला.'}
           </div>
         )}
 
         {/* Aggregate Ratings Overview Board */}
-        <div className="bg-[#fffdfa] border border-[#e2d6c3] rounded-2xl p-6 sm:p-8 mb-10 shadow-xs">
+        <div className="bg-[#FFFDF9] border border-[#DECEB7] rounded-[28px] p-6 sm:p-8 mb-10 shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
-            <div className="md:col-span-4 text-center md:text-left border-b md:border-b-0 md:border-r border-[#f0e6d8] pb-6 md:pb-0 md:pr-8">
-              <div className="font-editorial text-6xl font-bold text-[#241a15] leading-none tabular-nums">
+            <div className="md:col-span-4 text-center md:text-left border-b md:border-b-0 md:border-r border-[#E7DBCA] pb-6 md:pb-0 md:pr-8">
+              <div className="font-editorial text-6xl font-bold text-[#241810] leading-none tabular-nums">
                 {CAFE_INFO.rating}
               </div>
-              <div className="flex items-center justify-center md:justify-start gap-1 my-2 text-[#c88937] text-lg">
+              <div className="flex items-center justify-center md:justify-start gap-1 my-2 text-[#D37432] text-lg">
                 ★★★★☆
               </div>
-              <div className="text-xs text-[#735e52]">
+              <div className="text-xs text-[#5F4B3C]">
                 {CAFE_INFO.reviewCount} total Google reviews
               </div>
-              <div className="text-xs text-[#9c3418] font-bold mt-1">
+              <div className="text-xs text-[#758A6F] font-bold mt-1">
                 ₹1–200 per person · Reported by locals
               </div>
             </div>
 
-            <div className="md:col-span-8 space-y-2 text-xs">
+            <div className="md:col-span-8 space-y-2.5 text-xs">
               {[
                 { stars: 5, pct: '56%' },
                 { stars: 4, pct: '24%' },
@@ -130,14 +130,14 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
                 { stars: 1, pct: '5%' },
               ].map((row) => (
                 <div key={row.stars} className="flex items-center gap-3">
-                  <span className="w-3 font-bold text-[#524137] tabular-nums">{row.stars}★</span>
-                  <div className="flex-1 h-2.5 bg-[#f4ecdf] rounded-full overflow-hidden">
+                  <span className="w-4 font-bold text-[#241810] tabular-nums">{row.stars}★</span>
+                  <div className="flex-1 h-3 bg-[#F3E9D7] rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#c88937] rounded-full"
+                      className="h-full bg-[#758A6F] rounded-full transition-all duration-700"
                       style={{ width: row.pct }}
                     />
                   </div>
-                  <span className="w-8 text-right font-mono text-[11px] text-[#8c786a] tabular-nums">
+                  <span className="w-10 text-right font-mono text-[11px] text-[#8D7663] tabular-nums font-bold">
                     {row.pct}
                   </span>
                 </div>
@@ -148,8 +148,8 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
         </div>
 
         {/* Filter Keywords */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8">
-          <span className="text-xs font-bold text-[#735e52] whitespace-nowrap shrink-0">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+          <span className="text-xs font-bold text-[#5F4B3C] whitespace-nowrap shrink-0">
             Mentioned Dishes:
           </span>
           {filterKeywords.map((kw) => {
@@ -158,10 +158,10 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
               <button
                 key={kw}
                 onClick={() => setActiveFilter(kw)}
-                className={`px-3 py-1 rounded text-xs whitespace-nowrap shrink-0 transition-colors ${
+                className={`px-4 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shrink-0 transition-colors ${
                   isActive
-                    ? 'bg-[#241a15] text-[#fcf8f2] font-bold'
-                    : 'bg-[#fffdfa] border border-[#dcd1be] text-[#524137] hover:bg-[#e8dfd1]'
+                    ? 'bg-[#241810] text-[#FBF6EE] shadow-xs'
+                    : 'bg-[#FFFDF9] border border-[#DECEB7] text-[#5F4B3C] hover:bg-[#F3E9D7]'
                 }`}
               >
                 {kw}
@@ -179,38 +179,38 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
             return (
               <div
                 key={chit.id}
-                className={`bg-[#fffdfa] border border-[#e2d6c3] p-6 rounded-lg paper-pinned transition-transform hover:-translate-y-1 hover:rotate-0 flex flex-col justify-between space-y-4 ${rotationClass}`}
+                className={`bg-[#FFFDF9] border border-[#DECEB7] p-6 rounded-[24px] shadow-sm hover:shadow-md transition-all hover:-translate-y-1 hover:rotate-0 flex flex-col justify-between space-y-4 ${rotationClass}`}
               >
                 <div>
                   {/* Pin Mark */}
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#9c3418] mx-auto -mt-3 mb-3 shadow-xs" title="Pinned" />
+                  <div className="w-3 h-3 rounded-full bg-[#D37432] mx-auto -mt-3 mb-3 shadow-xs" title="Pinned" />
 
                   {/* Header info */}
-                  <div className="flex items-baseline justify-between gap-2 border-b border-[#f4ecdf] pb-2">
+                  <div className="flex items-baseline justify-between gap-2 border-b border-[#F3E9D7] pb-2">
                     <div>
-                      <div className="font-bold text-sm text-[#241a15]">{chit.author}</div>
-                      <div className="text-[10px] text-[#8c786a] truncate max-w-[170px]">{chit.role}</div>
+                      <div className="font-bold text-sm text-[#241810]">{chit.author}</div>
+                      <div className="text-[10px] text-[#8D7663] truncate max-w-[170px]">{chit.role}</div>
                     </div>
-                    <div className="text-xs font-mono font-bold text-[#c88937]">
+                    <div className="text-xs font-mono font-bold text-[#D37432]">
                       {chit.rating} ★
                     </div>
                   </div>
 
                   {chit.dishMentioned && (
-                    <div className="text-[11px] font-semibold text-[#9c3418] mt-2">
+                    <div className="text-[11px] font-semibold text-[#586B52] bg-[#E1EADA] px-2.5 py-0.5 rounded-full inline-block mt-2">
                       Dish: {chit.dishMentioned}
                     </div>
                   )}
 
                   {/* Handwritten Quote Styling */}
-                  <p className="mt-2 text-xs sm:text-sm text-[#524137] italic leading-relaxed">
+                  <p className="mt-3 text-xs sm:text-sm text-[#5F4B3C] italic leading-relaxed">
                     "{lang === 'en' ? chit.text : (chit.textMr || chit.text)}"
                   </p>
 
                   {/* Owner reply */}
                   {chit.ownerReply && (
-                    <div className="mt-3 p-3 bg-[#f7f2e9] border-l-2 border-[#9c3418] rounded text-[11px] text-[#5c4a40]">
-                      <div className="font-bold text-[#241a15] mb-0.5">
+                    <div className="mt-3 p-3 bg-[#F3E9D7] border-l-2 border-[#D37432] rounded-xl text-[11px] text-[#5F4B3C]">
+                      <div className="font-bold text-[#241810] mb-0.5">
                         {lang === 'en' ? 'From the Cafe counter:' : 'कॅफे मालक:'}
                       </div>
                       <p>{chit.ownerReply}</p>
@@ -218,12 +218,12 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
                   )}
                 </div>
 
-                <div className="text-[11px] text-[#8c786a] pt-3 border-t border-[#f4ecdf] flex justify-between items-center">
+                <div className="text-[11px] text-[#8D7663] pt-3 border-t border-[#F3E9D7] flex justify-between items-center">
                   <button
                     type="button"
                     onClick={() => handleLike(chit.id)}
                     className={`flex items-center gap-1.5 transition-colors ${
-                      isLiked ? 'text-[#9c3418] font-bold' : 'hover:text-[#241a15]'
+                      isLiked ? 'text-[#D37432] font-bold' : 'hover:text-[#241810]'
                     }`}
                   >
                     <span>{isLiked ? '❤️ Helpful' : '🤍 Helpful'}</span>
@@ -240,38 +240,38 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
 
       {/* Pin a Note Modal Form */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#241a15]/65 backdrop-blur-xs">
-          <div className="bg-[#fffdfa] border border-[#dcd1be] rounded-xl max-w-md w-full p-6 shadow-2xl text-[#241a15]">
-            <h3 className="font-editorial text-xl font-bold mb-1">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#241810]/65 backdrop-blur-xs">
+          <div className="bg-[#FFFDF9] border border-[#DECEB7] rounded-[32px] max-w-md w-full p-6 sm:p-8 shadow-2xl text-[#241810]">
+            <h3 className="font-editorial text-2xl font-bold mb-1">
               {lang === 'en' ? 'Pin a Review Chit' : 'आपला अभिप्राय नोंदवा'}
             </h3>
-            <p className="text-xs text-[#735e52] mb-4">
+            <p className="text-xs text-[#5F4B3C] mb-4">
               Share what you loved about our dosas, wada pav, or the complimentary chutney.
             </p>
 
             <form onSubmit={handleAddReview} className="space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-[#524137] mb-1">Your Name</label>
+                <label className="block font-bold text-[#586B52] mb-1">Your Name</label>
                 <input
                   type="text"
                   required
                   value={authorName}
                   onChange={(e) => setAuthorName(e.target.value)}
                   placeholder="e.g. Rushikesh / Prathamesh"
-                  className="w-full px-3 py-2 bg-[#fcf8f2] border border-[#dcd1be] rounded text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-3.5 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-[#241810] focus:outline-none focus:border-[#D37432]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-[#524137] mb-1">Favorite Dish</label>
+                <label className="block font-bold text-[#586B52] mb-1">Favorite Dish</label>
                 <select
                   value={dishFavorite}
                   onChange={(e) => setDishFavorite(e.target.value)}
-                  className="w-full px-3 py-2 bg-[#fcf8f2] border border-[#dcd1be] rounded text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-3.5 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-[#241810] focus:outline-none focus:border-[#D37432]"
                 >
                   <option value="Banana Leaf Masala Dosa">Banana Leaf Masala Dosa</option>
                   <option value="Satara Batata Wada Pav">Satara Batata Wada Pav</option>
-                  <option value="Veg Cheese Grilled Sandwich">Veg Cheese Grilled Sandwich (Vag CHIS)</option>
+                  <option value="Veg Cheese Grilled Sandwich">Veg Cheese Grilled Sandwich</option>
                   <option value="Bhajani Thalipeeth">Bhajani Thalipeeth with Loni</option>
                   <option value="Special Pav Bhaji">Special Pav Bhaji</option>
                   <option value="Cutting Chai / Filter Coffee">Cutting Chai / Filter Coffee</option>
@@ -279,45 +279,45 @@ export const ReviewsPage: React.FC<ReviewsPageProps> = ({ lang }) => {
               </div>
 
               <div>
-                <label className="block font-bold text-[#524137] mb-1">Rating</label>
-                <div className="flex gap-2 text-base text-[#c88937]">
+                <label className="block font-bold text-[#586B52] mb-1">Rating</label>
+                <div className="flex gap-2 text-lg text-[#D37432]">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <button
                       key={s}
                       type="button"
                       onClick={() => setRatingVal(s)}
-                      className="p-1 hover:scale-110"
+                      className="p-1 hover:scale-115 transition-transform"
                     >
                       {s <= ratingVal ? '★' : '☆'}
                     </button>
                   ))}
-                  <span className="text-xs font-mono text-[#241a15] ml-2 mt-1">{ratingVal} / 5</span>
+                  <span className="text-xs font-mono text-[#241810] ml-2 mt-1.5 font-bold">{ratingVal} / 5</span>
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-[#524137] mb-1">Your Words</label>
+                <label className="block font-bold text-[#586B52] mb-1">Your Words</label>
                 <textarea
                   required
                   rows={3}
                   value={reviewText}
                   onChange={(e) => setReviewText(e.target.value)}
                   placeholder="Write a few honest words..."
-                  className="w-full px-3 py-2 bg-[#fcf8f2] border border-[#dcd1be] rounded text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-3.5 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-[#241810] focus:outline-none focus:border-[#D37432]"
                 />
               </div>
 
-              <div className="flex justify-end gap-2 pt-2">
+              <div className="flex justify-end gap-3 pt-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-3 py-2 text-[#735e52]"
+                  className="px-4 py-2.5 text-xs text-[#5F4B3C] hover:text-[#241810]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#9c3418] hover:bg-[#802810] text-white font-bold rounded"
+                  className="px-6 py-2.5 bg-[#D37432] hover:bg-[#B2581A] text-white font-bold rounded-full shadow-md transition-colors"
                 >
                   Pin Note to Board
                 </button>

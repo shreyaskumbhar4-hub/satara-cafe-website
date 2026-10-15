@@ -62,18 +62,21 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
   };
 
   return (
-    <div className="py-12 md:py-20 bg-[#fcf8f2] text-[#241a15] animate-fade-in">
+    <div className="py-12 md:py-20 bg-[#FBF6EE] text-[#241810] animate-fade-in">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
-        {/* Header */}
+        {/* Header with botanical flourish */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="text-[11px] uppercase tracking-widest font-bold text-[#9c3418] mb-1">
+          <span className="text-xs uppercase tracking-widest font-bold text-[#758A6F] mb-1 block">
             {lang === 'en' ? 'Gatherings & Friends Table' : 'कट्टा आरक्षण'}
-          </div>
-          <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#241a15]">
+          </span>
+          <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#241810] tracking-tight">
             {lang === 'en' ? 'Reserve a Katta Table' : 'कट्ट्यावर जागा राखून ठेवा'}
           </h1>
-          <p className="text-xs sm:text-sm text-[#735e52] mt-2 leading-relaxed">
+          <div className="flex justify-center my-2 text-[#758A6F]">
+            <span>❧ ✦ ☙</span>
+          </div>
+          <p className="text-xs sm:text-sm text-[#5F4B3C] mt-2 leading-relaxed">
             {lang === 'en'
               ? 'Coming with friends for an evening sandwich katta, or heading down from Ajinkyatara for a morning breakfast ride? Let us know so we have hot dosas and seats ready.'
               : 'मित्रांसोबत संध्याकाळच्या गप्पांसाठी किंवा सकाळी सायकलिंगनंतरच्या नाश्त्यासाठी — अगोदर कळवा, आम्ही टेबल सज्ज ठेवू.'}
@@ -82,20 +85,20 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
 
         {/* Confirmation Slip */}
         {bookingConfirmed ? (
-          <div className="bg-[#fffdfa] border-2 border-[#2e6930] rounded-2xl p-8 sm:p-10 shadow-lg text-center space-y-4 max-w-lg mx-auto">
-            <div className="w-16 h-16 rounded-full bg-[#e8f2e8] text-[#2e6930] font-bold text-2xl flex items-center justify-center mx-auto">
+          <div className="bg-[#FFFDF9] border border-[#C5D4C1] rounded-[32px] p-8 sm:p-10 shadow-lg text-center space-y-4 max-w-lg mx-auto">
+            <div className="w-16 h-16 rounded-full bg-[#E1EADA] text-[#586B52] font-bold text-2xl flex items-center justify-center mx-auto border border-[#C5D4C1]">
               ✓
             </div>
-            <h2 className="font-editorial text-2xl font-bold text-[#241a15]">
+            <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#241810]">
               {lang === 'en' ? 'Booking Request Forwarded!' : 'आरक्षण विनंती पाठवली!'}
             </h2>
-            <div className="text-xs text-[#524137] bg-[#f4ecdf] p-4 rounded-lg space-y-1 text-left font-mono">
+            <div className="text-xs text-[#5F4B3C] bg-[#FBF6EE] p-5 rounded-2xl space-y-1.5 text-left font-mono border border-[#DECEB7]">
               <div><strong>Name:</strong> {formData.name}</div>
               <div><strong>Party:</strong> {formData.partySize} Guests</div>
               <div><strong>Date & Time:</strong> {formData.date} at {formData.timeSlot}</div>
               <div><strong>Occasion:</strong> {formData.occasion}</div>
             </div>
-            <p className="text-xs text-[#735e52]">
+            <p className="text-xs text-[#758A6F]">
               {lang === 'en'
                 ? 'Your WhatsApp message was sent to Satara Cafe counter at 075586 81179. No advance payment required!'
                 : 'आपली व्हॉट्सअ‍ॅप नोंद ०७५५८६ ८११७९ वर पोहोचली आहे. कोणतेही आगाऊ शुल्क नाही!'}
@@ -103,14 +106,14 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
             <div className="pt-2 flex justify-center gap-3">
               <a
                 href={`tel:${CAFE_INFO.phone}`}
-                className="px-5 py-2.5 bg-[#241a15] text-[#fcf8f2] text-xs font-bold rounded"
+                className="px-6 py-2.5 bg-[#241810] text-[#FBF6EE] text-xs font-bold rounded-full hover:bg-[#D37432] transition-colors"
               >
                 Call to Confirm: {CAFE_INFO.phone}
               </a>
               <button
                 type="button"
                 onClick={() => setBookingConfirmed(false)}
-                className="px-4 py-2.5 text-xs text-[#735e52] underline"
+                className="px-4 py-2.5 text-xs text-[#5F4B3C] underline hover:text-[#241810]"
               >
                 Book Another Table
               </button>
@@ -118,13 +121,13 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
           </div>
         ) : (
           /* The Interactive Booking Form */
-          <div className="bg-[#fffdfa] border border-[#e2d6c3] rounded-2xl p-6 sm:p-10 shadow-md">
+          <div className="bg-[#FFFDF9] border border-[#DECEB7] rounded-[32px] p-6 sm:p-10 shadow-sm">
             <form onSubmit={handleSubmit} className="space-y-6 text-xs">
               
               {/* Row 1: Contact Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-bold text-[#241a15] mb-1.5 uppercase tracking-wider text-[10px]">
+                  <label className="block font-bold text-[#586B52] mb-1.5 uppercase tracking-wider text-[10px]">
                     Your Name *
                   </label>
                   <input
@@ -133,12 +136,12 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Rushikesh Patil"
-                    className="w-full px-3.5 py-2.5 bg-[#fcf8f2] border border-[#dcd1be] rounded-lg text-sm text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                    className="w-full px-4 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-sm text-[#241810] focus:outline-none focus:border-[#D37432]"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#241a15] mb-1.5 uppercase tracking-wider text-[10px]">
+                  <label className="block font-bold text-[#586B52] mb-1.5 uppercase tracking-wider text-[10px]">
                     WhatsApp Phone Number *
                   </label>
                   <input
@@ -147,26 +150,26 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="e.g. 98XXXXXXXX"
-                    className="w-full px-3.5 py-2.5 bg-[#fcf8f2] border border-[#dcd1be] rounded-lg text-sm text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                    className="w-full px-4 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-sm text-[#241810] focus:outline-none focus:border-[#D37432]"
                   />
                 </div>
               </div>
 
               {/* Row 2: Party Size Selection */}
               <div>
-                <label className="block font-bold text-[#241a15] mb-2 uppercase tracking-wider text-[10px]">
+                <label className="block font-bold text-[#586B52] mb-2 uppercase tracking-wider text-[10px]">
                   Number of Guests
                 </label>
-                <div className="grid grid-cols-5 sm:grid-cols-7 gap-2">
+                <div className="flex flex-wrap gap-2">
                   {[1, 2, 3, 4, 5, 6, 8, 10].map((num) => (
                     <button
                       key={num}
                       type="button"
                       onClick={() => setFormData({ ...formData, partySize: num })}
-                      className={`py-2 rounded-lg font-mono text-sm font-bold border transition-colors ${
+                      className={`px-4 py-2 rounded-full font-mono text-xs font-bold border transition-all ${
                         formData.partySize === num
-                          ? 'bg-[#9c3418] text-white border-[#802810]'
-                          : 'bg-[#fcf8f2] text-[#524137] border-[#dcd1be] hover:border-[#c4b59f]'
+                          ? 'bg-[#D37432] text-white border-[#B2581A] shadow-xs'
+                          : 'bg-[#FBF6EE] text-[#5F4B3C] border-[#DECEB7] hover:bg-[#F3E9D7]'
                       }`}
                     >
                       {num} {num === 1 ? 'Guest' : 'Guests'}
@@ -178,7 +181,7 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
               {/* Row 3: Date & Time Slot */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-bold text-[#241a15] mb-1.5 uppercase tracking-wider text-[10px]">
+                  <label className="block font-bold text-[#586B52] mb-1.5 uppercase tracking-wider text-[10px]">
                     Date
                   </label>
                   <input
@@ -186,18 +189,18 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
                     required
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-[#fcf8f2] border border-[#dcd1be] rounded-lg text-sm text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                    className="w-full px-4 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-sm text-[#241810] focus:outline-none focus:border-[#D37432]"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-bold text-[#241a15] mb-1.5 uppercase tracking-wider text-[10px]">
+                  <label className="block font-bold text-[#586B52] mb-1.5 uppercase tracking-wider text-[10px]">
                     Preferred Time Slot
                   </label>
                   <select
                     value={formData.timeSlot}
                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                    className="w-full px-3.5 py-2.5 bg-[#fcf8f2] border border-[#dcd1be] rounded-lg text-sm text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                    className="w-full px-4 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-sm text-[#241810] focus:outline-none focus:border-[#D37432]"
                   >
                     {timeSlots.map((ts) => (
                       <option key={ts} value={ts}>{ts}</option>
@@ -208,19 +211,19 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
 
               {/* Row 4: Occasion */}
               <div>
-                <label className="block font-bold text-[#241a15] mb-1.5 uppercase tracking-wider text-[10px]">
+                <label className="block font-bold text-[#586B52] mb-1.5 uppercase tracking-wider text-[10px]">
                   Gathering Occasion
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="flex flex-wrap gap-2">
                   {occasions.map((occ) => (
                     <button
                       key={occ}
                       type="button"
                       onClick={() => setFormData({ ...formData, occasion: occ })}
-                      className={`p-2.5 text-left rounded-lg border text-xs leading-snug transition-colors ${
+                      className={`px-4 py-2 text-left rounded-full border text-xs leading-snug transition-all ${
                         formData.occasion === occ
-                          ? 'border-[#9c3418] bg-[#9c3418]/10 font-bold text-[#9c3418]'
-                          : 'border-[#dcd1be] bg-[#fcf8f2] text-[#524137] hover:border-[#c4b59f]'
+                          ? 'border-[#D37432] bg-[#FDE8D7] font-bold text-[#D37432] shadow-xs'
+                          : 'border-[#DECEB7] bg-[#FBF6EE] text-[#5F4B3C] hover:bg-[#F3E9D7]'
                       }`}
                     >
                       {occ}
@@ -231,7 +234,7 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
 
               {/* Row 5: Special Note */}
               <div>
-                <label className="block font-bold text-[#241a15] mb-1.5 uppercase tracking-wider text-[10px]">
+                <label className="block font-bold text-[#586B52] mb-1.5 uppercase tracking-wider text-[10px]">
                   Special Request or Pre-order
                 </label>
                 <input
@@ -239,19 +242,19 @@ export const TableBookingPage: React.FC<TableBookingPageProps> = ({ lang }) => {
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="e.g. Keep 4 filter coffees and 4 masala dosas ready on arrival, corner wooden table..."
-                  className="w-full px-3.5 py-2.5 bg-[#fcf8f2] border border-[#dcd1be] rounded-lg text-xs text-[#241a15] focus:outline-none focus:border-[#9c3418]"
+                  className="w-full px-4 py-2.5 bg-[#FBF6EE] border border-[#DECEB7] rounded-xl text-xs text-[#241810] focus:outline-none focus:border-[#D37432]"
                 />
               </div>
 
               {/* Submit CTA */}
-              <div className="pt-4 border-t border-[#f4ecdf] flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-[11px] text-[#735e52]">
+              <div className="pt-4 border-t border-[#E7DBCA] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-[11px] text-[#758A6F]">
                   No deposit or card required. Instant WhatsApp notification to 075586 81179.
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-[#9c3418] hover:bg-[#802810] text-[#fcf8f2] text-xs uppercase tracking-wider font-bold rounded-lg shadow-md transition-all text-center"
+                  className="w-full sm:w-auto px-8 py-3.5 bg-[#D37432] hover:bg-[#B2581A] text-white text-xs uppercase tracking-wider font-bold rounded-full shadow-md hover:shadow-lg transition-all text-center"
                 >
                   Send Table Request to WhatsApp
                 </button>

@@ -9,25 +9,39 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ lang, onNavigate }) => {
   return (
-    <footer className="bg-[#1c1410] text-[#a8988b] border-t border-[#2e221b] text-xs py-14">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <footer className="bg-[#241810] text-[#DCD1BE] border-t-4 border-[#758A6F] text-xs pt-12 pb-14 relative overflow-hidden">
+      
+      {/* Decorative Tree Silhouette Row (Inspired by Bottom Silhouette in Reference Image) */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-8 flex justify-between items-end opacity-20 text-[#FFFDF9] select-none pointer-events-none">
+        <svg width="64" height="48" viewBox="0 0 64 48" fill="currentColor">
+          <path d="M32 44V24M32 24C30 18 20 16 12 18C16 14 26 14 32 20M32 24C34 18 44 16 52 18C48 14 38 14 32 20M32 20C28 12 18 8 10 10C16 6 26 8 32 16M32 20C36 12 46 8 54 10C48 6 38 8 32 16M32 16C32 8 32 0 32 0C32 0 32 8 32 16Z" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg width="48" height="36" viewBox="0 0 64 48" fill="currentColor">
+          <path d="M32 44V24M32 24C30 18 20 16 12 18C16 14 26 14 32 20M32 24C34 18 44 16 52 18C48 14 38 14 32 20Z" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg width="72" height="52" viewBox="0 0 64 48" fill="currentColor">
+          <path d="M32 44V24M32 24C30 18 20 16 12 18C16 14 26 14 32 20M32 24C34 18 44 16 52 18C48 14 38 14 32 20M32 20C28 12 18 8 10 10C16 6 26 8 32 16M32 20C36 12 46 8 54 10C48 6 38 8 32 16M32 16C32 8 32 0 32 0C32 0 32 8 32 16Z" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10 pb-10 border-b border-[#2e221b]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10 pb-10 border-b border-[#3D2B1E]">
           
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-3">
             <button
               onClick={() => onNavigate('home')}
-              className="flex items-baseline gap-2.5 text-left"
+              className="flex items-baseline gap-2.5 text-left group"
             >
-              <span className="font-editorial text-2xl font-bold text-[#fcf8f2] tracking-tight">
+              <span className="font-editorial text-2xl sm:text-3xl font-bold text-[#FBF6EE] group-hover:text-[#D37432] transition-colors tracking-tight">
                 Satara Cafe
               </span>
-              <span className="font-marathi-brand text-[#c88937] text-base">
+              <span className="font-marathi-brand text-[#D37432] text-base font-semibold">
                 सातारा कॅफे
               </span>
             </button>
-            <p className="text-[#8c7a6e] max-w-sm leading-relaxed text-xs sm:text-sm">
+            <p className="text-[#A39082] max-w-sm leading-relaxed text-xs sm:text-sm">
               {lang === 'en'
                 ? 'A warm neighborhood katta in Sadar Bazar. Hot banana leaf dosas, spicy wada pav, multigrain thalipeeth, and fresh filter coffee. Open daily 7:30 AM to 10:30 PM.'
                 : 'सदर बझारमधील आपला हक्काचा कट्टा. गरमागरम डोसा, वडापाव, भाजणीचे थालीपीठ आणि सुगंधी कॉफी. रोज सकाळी ७:३० ते रात्री १०:३० सुरू.'}
@@ -36,10 +50,10 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate }) => {
 
           {/* Quick Page Links */}
           <div className="md:col-span-3 space-y-2">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#dcd1be]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#FDE8D7]">
               Pages & Sections
             </div>
-            <div className="flex flex-col space-y-1.5 text-xs text-[#a39082]">
+            <div className="flex flex-col space-y-1.5 text-xs text-[#A39082]">
               <button
                 onClick={() => onNavigate('home')}
                 className="hover:text-white text-left transition-colors"
@@ -87,25 +101,25 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate }) => {
 
           {/* Contact & Hours */}
           <div className="md:col-span-4 space-y-2">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[#dcd1be]">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-[#FDE8D7]">
               {lang === 'en' ? 'Counter & Hours' : 'संपर्क व वेळ'}
             </div>
             <a
               href={`tel:${CAFE_INFO.phone}`}
-              className="font-bold text-[#fcf8f2] hover:text-[#c88937] text-sm tabular-nums block"
+              className="font-bold text-[#FBF6EE] hover:text-[#D37432] text-sm tabular-nums block"
             >
               {CAFE_INFO.phone}
             </a>
-            <p className="text-[#8c7a6e]">
+            <p className="text-[#A39082]">
               {CAFE_INFO.address}
             </p>
-            <p className="text-[11px] text-[#705f54]">
+            <p className="text-[11px] text-[#7E6A5B]">
               {CAFE_INFO.landmark} · Plus Code: {CAFE_INFO.plusCode}
             </p>
             <div className="pt-2">
               <button
                 onClick={() => onNavigate('location')}
-                className="text-[#c88937] hover:underline text-[11px]"
+                className="text-[#D37432] hover:underline text-[11px] font-bold"
               >
                 {lang === 'en' ? 'View Landmark Directions →' : 'पत्ता व मार्गदर्शक पहा →'}
               </button>
@@ -115,12 +129,14 @@ export const Footer: React.FC<FooterProps> = ({ lang, onNavigate }) => {
         </div>
 
         {/* Bottom copyright */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#705f54]">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#7E6A5B]">
           <div>
             © {new Date().getFullYear()} Satara Cafe (सातारा कॅफे). Proudly serving Sadar Bazar, Satara.
           </div>
-          <div className="text-[11px] text-[#8c7a6e]">
-            Pure Vegetarian · Dine-in · Roadside Takeaway
+          <div className="text-[11px] text-[#A39082] flex items-center gap-2">
+            <span>Pure Vegetarian</span>
+            <span>•</span>
+            <span>Dine-in & Takeaway</span>
           </div>
         </div>
 

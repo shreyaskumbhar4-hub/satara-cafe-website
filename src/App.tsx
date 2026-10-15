@@ -13,6 +13,7 @@ import { ReviewsPage } from './components/pages/ReviewsPage';
 import { TableBookingPage } from './components/pages/TableBookingPage';
 import { LocationPage } from './components/pages/LocationPage';
 import { Footer } from './components/Footer';
+
 import { ActivePage, CartCustomization, CartItem, Language, MenuItem } from './types';
 
 export default function App() {
@@ -63,7 +64,6 @@ export default function App() {
   };
 
   const handleAddCombo = (comboTitle: string, items: MenuItem[], discountedTotal: number) => {
-    // We add as a single customized package item
     const comboMenuItem: MenuItem = {
       id: `combo-${Date.now()}`,
       nameEn: `Katta Combo: ${comboTitle}`,
@@ -119,7 +119,7 @@ export default function App() {
   const totalCartAmount = cartItems.reduce((acc, item) => acc + item.menuItem.price * item.quantity, 0);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fcf8f2] text-[#241a15] font-sans antialiased selection:bg-[#9c3418] selection:text-[#fcf8f2]">
+    <div className="min-h-screen flex flex-col bg-[#FBF6EE] text-[#241810] font-sans antialiased selection:bg-[#D37432] selection:text-white">
       
       {/* Editorial Top Navigation */}
       <Navbar
@@ -130,7 +130,7 @@ export default function App() {
         cartCount={totalCartCount}
       />
 
-      {/* 7-Page Client-Side View Router */}
+      {/* Main Multi-Page Dynamic Router */}
       <main className="flex-1">
         {activePage === 'home' && (
           <HomePage
@@ -184,13 +184,13 @@ export default function App() {
         )}
       </main>
 
-      {/* Quiet Artisanal Footer */}
+      {/* Footer */}
       <Footer
         lang={lang}
         onNavigate={handleNavigate}
       />
 
-      {/* Floating Order Slip Quick Tab (when items are added and not on order-slip page) */}
+      {/* Floating Order Slip Quick Tab */}
       {totalCartCount > 0 && activePage !== 'order-slip' && (
         <aside
           aria-label="Order slip badge"
@@ -199,13 +199,13 @@ export default function App() {
           <button
             onClick={() => handleNavigate('order-slip')}
             type="button"
-            className="flex items-center gap-3 px-4 py-3 bg-[#9c3418] hover:bg-[#802810] text-[#fcf8f2] text-xs font-bold rounded-lg shadow-xl hover:scale-103 transition-transform active:scale-95 border border-[#802810]"
+            className="flex items-center gap-3 px-5 py-3.5 bg-[#D37432] hover:bg-[#B2581A] text-white text-xs font-bold rounded-full shadow-xl hover:scale-105 transition-all active:scale-95 border border-[#B2581A]"
           >
-            <span className="w-5 h-5 rounded-full bg-[#fcf8f2] text-[#9c3418] text-[11px] font-bold flex items-center justify-center tabular-nums">
+            <span className="w-5 h-5 rounded-full bg-white text-[#D37432] text-[11px] font-bold flex items-center justify-center tabular-nums shadow-xs">
               {totalCartCount}
             </span>
-            <span>{lang === 'en' ? 'View Slip' : 'पावती पहा'} · ₹{totalCartAmount}</span>
-            <span className="text-[11px] text-[#f4ecdf] ml-1">→</span>
+            <span>{lang === 'en' ? 'View Order Slip' : 'पावती पहा'} · ₹{totalCartAmount}</span>
+            <span className="text-xs text-[#FDE8D7] ml-0.5">→</span>
           </button>
         </aside>
       )}

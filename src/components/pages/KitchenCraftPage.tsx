@@ -50,26 +50,29 @@ export const KitchenCraftPage: React.FC<KitchenCraftPageProps> = ({ lang }) => {
   ];
 
   return (
-    <div className="py-12 md:py-20 bg-[#fcf8f2] text-[#241a15] animate-fade-in">
+    <div className="py-12 md:py-20 bg-[#FBF6EE] text-[#241810] animate-fade-in">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        {/* Editorial Heading */}
-        <div className="max-w-3xl mb-12">
-          <div className="text-[11px] uppercase tracking-widest font-bold text-[#9c3418] mb-2">
+        {/* Editorial Heading with botanical flourish */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs uppercase tracking-widest font-bold text-[#758A6F] mb-1 block">
             {lang === 'en' ? 'Kitchen Heritage & The Spices' : 'किचन संस्कृती व मसाले'}
-          </div>
-          <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#241a15] tracking-tight leading-tight">
+          </span>
+          <h1 className="font-editorial text-3xl sm:text-5xl font-bold text-[#241810] tracking-tight leading-tight">
             {lang === 'en' ? (
               <>
-                Cast iron tawas, fresh coconut grating, and the <span className="italic font-normal text-[#9c3418]">scent of mustard seeds.</span>
+                Cast iron tawas, fresh coconut grating, and the <span className="italic font-normal text-[#D37432]">scent of mustard seeds.</span>
               </>
             ) : (
               <>
-                लोखंडी तवे, ताजा किसलेला नारळ आणि <span className="text-[#9c3418]">खमंग मोहरीची फोडणी.</span>
+                लोखंडी तवे, ताजा किसलेला नारळ आणि <span className="text-[#D37432]">खमंग मोहरीची फोडणी.</span>
               </>
             )}
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-[#524137] leading-relaxed">
+          <div className="flex justify-center my-2 text-[#758A6F]">
+            <span>❧ ✦ ☙</span>
+          </div>
+          <p className="mt-3 text-xs sm:text-sm text-[#5F4B3C] leading-relaxed max-w-2xl mx-auto">
             {lang === 'en'
               ? 'We believe great cafe food in Satara does not come from pre-mixed packets or factory shortcuts. It comes from patience: soaking lentils overnight, roasting our multi-grain bhajani on slow fire, and pounding garlic thecha fresh every morning.'
               : 'साताऱ्यातील उत्तम चव ही पॅकेटमधील मसाल्यांतून नव्हे, तर संयमातून येते — रात्रभर भिजवलेली डाळ, मंद आचेवर भाजलेली भाजणी आणि खलबत्त्यात कुटलेला गावरान लसूण ठेचा.'}
@@ -77,17 +80,21 @@ export const KitchenCraftPage: React.FC<KitchenCraftPageProps> = ({ lang }) => {
         </div>
 
         {/* SECTION 1: Interactive Brass Spice Box (मसाल्यांचा डबा) */}
-        <div className="bg-[#241a15] border border-[#3d2e25] text-[#fcf8f2] rounded-2xl p-6 sm:p-10 mb-16 shadow-xl">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#3d2e25] gap-3">
+        <div className="bg-[#241810] border-4 border-[#3D2B1E] text-[#FBF6EE] rounded-[32px] p-6 sm:p-10 mb-16 shadow-2xl relative overflow-hidden">
+          
+          {/* Subtle background brass glow */}
+          <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#C88937]/10 blur-3xl pointer-events-none" />
+
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#3D2B1E] gap-3">
             <div>
-              <span className="text-[10px] uppercase font-bold text-[#c88937] tracking-widest">
+              <span className="text-[10px] uppercase font-bold text-[#FDE8D7] tracking-widest block">
                 Interactive Spice Katoris
               </span>
-              <h2 className="font-editorial text-2xl font-bold text-white">
+              <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-white mt-0.5">
                 {lang === 'en' ? 'Our Traditional Masala Daba' : 'आमचा पारंपारिक मसाल्यांचा डबा'}
               </h2>
             </div>
-            <div className="text-xs text-[#a39082]">
+            <div className="text-xs text-[#A39082]">
               Tap any spice below to reveal its secret role in our kitchen:
             </div>
           </div>
@@ -103,19 +110,19 @@ export const KitchenCraftPage: React.FC<KitchenCraftPageProps> = ({ lang }) => {
                     key={spice.id}
                     onClick={() => setActiveSpiceId(spice.id)}
                     type="button"
-                    className={`p-4 rounded-xl text-left border transition-all ${
+                    className={`p-4 rounded-2xl text-left border transition-all ${
                       isSelected
-                        ? 'border-[#c88937] bg-[#36271f] text-white shadow-md scale-102'
-                        : 'border-[#3d2e25] bg-[#1a130f]/60 text-[#a39082] hover:border-[#5a4335] hover:text-white'
+                        ? 'border-[#C88937] bg-[#36271F] text-white shadow-md scale-102 ring-1 ring-[#C88937]'
+                        : 'border-[#3D2B1E] bg-[#1A130F]/60 text-[#A39082] hover:border-[#5A4335] hover:text-white'
                     }`}
                   >
-                    <div className="w-4 h-4 rounded-full bg-[#c88937]/20 border border-[#c88937] mb-2 flex items-center justify-center text-[9px] text-[#c88937]">
+                    <div className="w-5 h-5 rounded-full bg-[#C88937]/20 border border-[#C88937] mb-2 flex items-center justify-center text-[10px] text-[#C88937] font-bold">
                       {isSelected ? '✓' : '•'}
                     </div>
                     <div className="font-bold text-xs leading-snug truncate">
                       {spice.nameEn.split('(')[0]}
                     </div>
-                    <div className="text-[10px] font-marathi-brand text-[#c88937] mt-0.5 truncate">
+                    <div className="text-[10px] font-marathi-brand text-[#FDE8D7] mt-0.5 truncate">
                       {spice.nameEn.includes('(') ? spice.nameEn.split('(')[1].replace(')', '') : ''}
                     </div>
                   </button>
@@ -124,23 +131,23 @@ export const KitchenCraftPage: React.FC<KitchenCraftPageProps> = ({ lang }) => {
             </div>
 
             {/* Selected Spice Detailed Flavor Card */}
-            <div className="lg:col-span-5 bg-[#1a130f] border border-[#3d2e25] p-6 rounded-xl space-y-4">
+            <div className="lg:col-span-5 bg-[#1A130F] border border-[#3D2B1E] p-6 rounded-2xl space-y-4 shadow-inner">
               <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider text-[#c88937]">
+                <span className="text-[10px] uppercase font-mono tracking-wider text-[#C88937] font-bold">
                   {selectedSpice.origin}
                 </span>
-                <h3 className="font-editorial text-xl font-bold text-white mt-1">
+                <h3 className="font-editorial text-2xl font-bold text-white mt-1">
                   {selectedSpice.nameEn}
                 </h3>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#dcd1be] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#DCD1BE] leading-relaxed">
                 {lang === 'en' ? selectedSpice.roleEn : selectedSpice.roleMr}
               </p>
 
-              <div className="pt-3 border-t border-[#3d2e25] text-[11px] text-[#8c786a] flex justify-between">
+              <div className="pt-3 border-t border-[#3D2B1E] text-[11px] text-[#8D7663] flex justify-between">
                 <span>Hand-inspected daily</span>
-                <span className="text-[#c88937]">Satara Cafe Kitchen</span>
+                <span className="text-[#FDE8D7] font-semibold">Satara Cafe Kitchen</span>
               </div>
             </div>
 
@@ -149,44 +156,49 @@ export const KitchenCraftPage: React.FC<KitchenCraftPageProps> = ({ lang }) => {
 
         {/* SECTION 2: 3 Kitchen Rituals */}
         <div className="mb-16">
-          <div className="text-[11px] uppercase tracking-widest font-bold text-[#9c3418] mb-2">
-            The Philosophy
+          <div className="text-center max-w-xl mx-auto mb-8">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#758A6F] mb-1 block">
+              The Philosophy
+            </span>
+            <h2 className="font-editorial text-2xl sm:text-4xl font-bold text-[#241810]">
+              Three Daily Rituals at Our Counter
+            </h2>
+            <div className="flex justify-center my-2 text-[#758A6F]">
+              <span>❧ ✦ ☙</span>
+            </div>
           </div>
-          <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#241a15] mb-8">
-            Three Daily Rituals at Our Counter
-          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-[#fffdfa] border border-[#e8dfd1] p-6 rounded-xl space-y-3">
-              <span className="font-editorial text-2xl font-bold text-[#9c3418]">01</span>
-              <h3 className="font-bold text-base text-[#241a15]">
+            <div className="bg-[#DCE6D8] border border-[#C5D4C1] p-6 rounded-[28px] space-y-3 shadow-xs">
+              <span className="font-editorial text-2xl font-bold text-[#586B52]">01</span>
+              <h3 className="font-editorial text-lg font-bold text-[#241810]">
                 {lang === 'en' ? 'Natural Banana Leaves' : 'केळीची ताजी पाने'}
               </h3>
-              <p className="text-xs text-[#5c4a40] leading-relaxed">
+              <p className="text-xs text-[#4A5D44] leading-relaxed">
                 {lang === 'en'
                   ? 'We cut fresh banana leaves every morning for our dosas. As the hot crisp dosa rests on the warm leaf, the natural leaf wax imparts a delicate, authentic aroma you never get from paper plates.'
                   : 'केळीच्या पानावरील उष्णतेमुळे पदार्थाला मिळणारा नैसर्गिक सुवास आणि चव कागदी प्लेटमध्ये कधीच मिळू शकत नाही.'}
               </p>
             </div>
 
-            <div className="bg-[#fffdfa] border border-[#e8dfd1] p-6 rounded-xl space-y-3">
-              <span className="font-editorial text-2xl font-bold text-[#9c3418]">02</span>
-              <h3 className="font-bold text-base text-[#241a15]">
+            <div className="bg-[#FFFDF9] border border-[#DECEB7] p-6 rounded-[28px] space-y-3 shadow-xs">
+              <span className="font-editorial text-2xl font-bold text-[#D37432]">02</span>
+              <h3 className="font-editorial text-lg font-bold text-[#241810]">
                 {lang === 'en' ? 'Twice-Daily Coconut Grating' : 'दोनदा ताजा किसलेला नारळ'}
               </h3>
-              <p className="text-xs text-[#5c4a40] leading-relaxed">
+              <p className="text-xs text-[#5F4B3C] leading-relaxed">
                 {lang === 'en'
                   ? 'We never use refrigerated coconut paste. Fresh coconuts are broken and grated once at 7:00 AM for the breakfast rush, and again at 4:30 PM for the evening katta crowd.'
                   : 'सकाळी ७ वाजता आणि पुन्हा संध्याकाळी ४:३० वाजता ताजा नारळ किसून चटणी वाटली जाते.'}
               </p>
             </div>
 
-            <div className="bg-[#fffdfa] border border-[#e8dfd1] p-6 rounded-xl space-y-3">
-              <span className="font-editorial text-2xl font-bold text-[#9c3418]">03</span>
-              <h3 className="font-bold text-base text-[#241a15]">
+            <div className="bg-[#DCE6D8] border border-[#C5D4C1] p-6 rounded-[28px] space-y-3 shadow-xs">
+              <span className="font-editorial text-2xl font-bold text-[#586B52]">03</span>
+              <h3 className="font-editorial text-lg font-bold text-[#241810]">
                 {lang === 'en' ? 'Slow Tawa Roasting' : 'मंद आचेवर तव्याची भाजणी'}
               </h3>
-              <p className="text-xs text-[#5c4a40] leading-relaxed">
+              <p className="text-xs text-[#4A5D44] leading-relaxed">
                 {lang === 'en'
                   ? 'Our multigrain thalipeeth is hand-patted directly on parchment, roasted with Amul butter until crispy golden on the edges, and topped with authentic homemade white loni butter.'
                   : 'भाजणीचे थालीपीठ हाताने थापून बटरवर खमंग भाजले जाते आणि वर घरचे पांढरे लोणी दिले जाते.'}
@@ -197,14 +209,15 @@ export const KitchenCraftPage: React.FC<KitchenCraftPageProps> = ({ lang }) => {
 
         {/* SECTION 3: Visual Culinary Gallery Showcase */}
         <div>
-          <div className="flex justify-between items-end mb-6">
-            <div>
-              <div className="text-[11px] uppercase tracking-widest font-bold text-[#9c3418] mb-1">
-                Visual Chronicle
-              </div>
-              <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#241a15]">
-                Life & Flavors in Sadar Bazar
-              </h2>
+          <div className="text-center max-w-xl mx-auto mb-8">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#758A6F] mb-1 block">
+              Visual Chronicle
+            </span>
+            <h2 className="font-editorial text-2xl sm:text-4xl font-bold text-[#241810]">
+              Life & Flavors in Sadar Bazar
+            </h2>
+            <div className="flex justify-center my-2 text-[#758A6F]">
+              <span>❧ ✦ ☙</span>
             </div>
           </div>
 
@@ -212,23 +225,21 @@ export const KitchenCraftPage: React.FC<KitchenCraftPageProps> = ({ lang }) => {
             {galleryImages.map((img, idx) => (
               <div
                 key={idx}
-                className="bg-[#fffdfa] border border-[#e8dfd1] rounded-xl overflow-hidden shadow-xs group"
+                className="bg-[#FFFDF9] border border-[#DECEB7] rounded-[28px] overflow-hidden shadow-xs hover:shadow-md transition-all group p-4 flex flex-col justify-between"
               >
-                <div className="aspect-4/3 overflow-hidden bg-[#e8dfd1]">
+                <div className="aspect-4/3 overflow-hidden rounded-[20px] bg-[#F3E9D7] mb-3">
                   <img
                     src={img.src}
                     alt={img.titleEn}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-4">
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="font-bold text-sm text-[#241a15]">
-                      {lang === 'en' ? img.titleEn : img.titleMr}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-[#5c4a40] mt-1 leading-relaxed">
+                <div>
+                  <h3 className="font-editorial text-base font-bold text-[#241810]">
+                    {lang === 'en' ? img.titleEn : img.titleMr}
+                  </h3>
+                  <p className="text-xs text-[#5F4B3C] mt-1 leading-relaxed">
                     {img.desc}
                   </p>
                 </div>
