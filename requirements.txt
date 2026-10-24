@@ -1,0 +1,43 @@
+# ==============================================================================
+# Satara Cafe (सातारा कॅफे) — Project Dependencies & System Requirements
+# ==============================================================================
+# Note: This is a Node.js / React / TypeScript / Vite web application.
+# Dependencies are managed automatically via `package.json` using npm.
+#
+# Quick Install Command:
+#   npm install --legacy-peer-deps
+#
+# Run Development Server:
+#   npm run dev
+#
+# Build Production Bundle:
+#   npm run build
+# ==============================================================================
+
+# --- System & Runtime Prerequisites ---
+node>=20.0.0
+npm>=10.0.0
+
+# --- Core Frontend & UI Dependencies (package.json -> dependencies) ---
+react@^19.0.1
+react-dom@^19.0.1
+vite@^8.3.0
+@vitejs/plugin-react@^6.1.1
+@tailwindcss/vite@^4.3.3
+lucide-react@^0.546.0
+motion@^12.23.24
+
+# --- Utility & Server Dependencies ---
+dotenv@^17.2.3
+express@^4.21.2
+@google/genai@^2.4.0
+
+# --- Development & Type-Checking Dependencies (package.json -> devDependencies) ---
+typescript@^7.0.2
+tailwindcss@^4.3.3
+autoprefixer@^10.4.21
+tsx@^4.21.0
+@types/node@^22.14.0
+@types/react@^19.3.0
+@types/react-dom@^19.3.0
+@types/express@^4.17.21
